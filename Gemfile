@@ -15,6 +15,8 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'popper_js'
 #
 gem 'jquery-rails'
+# Use font awsome for icons
+gem 'font-awesome-sass', '~> 5.0.6'
 #
 gem 'sprockets-rails'
 # Use Puma as the app server
