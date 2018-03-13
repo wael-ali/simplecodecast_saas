@@ -10,7 +10,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
       <%= link_to root_path, class: 'navbar-brand' do %>
           <i class="fa fa-users"></i>
@@ -22,9 +22,6 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
@@ -43,9 +40,16 @@
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
-
-          <%= link_to 'About', about_path, class: 'btn btn-outline-success my-2 my-sm-0'%>
-          <%= link_to 'Contact us', new_contact_path, class: 'btn btn-outline-success my-2 my-sm-0'%>
+        <ul class="navbar-nav">
+          <li><%= link_to 'About', about_path, class: 'nav-item nav-link'%></li>
+          <li><%= link_to 'Contact us', new_contact_path, class: 'nav-item nav-link'%></li>
+        </ul>
+        <% if current_user %>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-primary' %>
+        <% else %>
+          <%= link_to 'Log in', new_user_session_path, class: 'btn  btn-outline-success  my-2 my-sm-0'%>
+          <%= link_to 'Sign up', new_user_registration_path, class:  'btn btn-outline-primary my-2 my-sm-0'%>
+        <% end %>
       </div>
     </nav>
     <div class="container">
